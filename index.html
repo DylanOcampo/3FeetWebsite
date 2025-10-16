@@ -1,204 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3 Feet</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            overflow-y: hidden;
+      * {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      body {
+        height: 100dvh;
+        width: 100dvw;
+        background-image: url("Fondo.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .logo-container {
+        margin-top: 50px;
+        text-align: center;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 2;
+        background-size: contain;
+        width: 100%;
+        align-items: center;
+        padding: 0 50px;
+        box-sizing: border-box;
+      }
+
+      .text-container {
+        width: 100dvw;
+        height: 100dvh;
+        text-align: center;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        align-items: center;
+        z-index: 0;
+      }
+
+      .logoLink {
+        width: 230px;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        background-size: contain;
+        display: block;
+        padding-left: 70px;
+      }
+
+      .logo {
+        width: 300px;
+        height: auto;
+      }
+
+      .logoLink:hover {
+        transform: scale(1.05);
+        background-size: contain;
+      }
+
+      .footer {
+        height: 100%;
+      }
+
+      .footerParent {
+        width: 100%;
+        margin-top: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-image: url("footer.png");
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+        background-position: left bottom;
+      }
+
+      /* Para pantallas muy altas, el footer se puede extender más */
+      @media (min-height: 800px) {
+        .footerParent {
+          height: 60px;
+        }
+      }
+
+      @media (min-height: 1000px) {
+        .footerParent {
+          height: 80px;
+        }
+      }
+
+      .coming-soon {
+        width: 55%;
+        height: auto;
+        padding-bottom: 100px;
+        padding-top: 100px;
+        max-width: 665px;
+      }
+
+      .fadeBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.308),
+          rgba(0, 0, 0, 0.856)
+        );
+        z-index: -1;
+      }
+
+      .logoLinkContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: 300px;
+        min-height: 18px;
+      }
+
+      .title {
+        font-size: 150px;
+        color: #d2ff00;
+        margin-bottom: 20px;
+        font-family: "New Order Semibold", sans-serif;
+      }
+
+      .subText{
+        font-size: 20px;
+        color: white;
+        font-family: "New Order Semibold", sans-serif;
+        width: 70%;
+        max-width: 550px;
+        position: relative;
+        bottom: 60px;
+      }
+
+      .textImage {
+        width: 100%;
+        height: auto;
+        opacity: 0.5;
+      }
+
+    
+
+      @media (max-width: 1000px) {
+        .textImage {
+          height: auto;
+          width: 1000px;
+          padding-top: 30px;
         }
 
-        body {
-            height: 100dvh;
-            width: 100dvw;
-            background-image: url('Fondo.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
-
-        .logo-container {
-            margin-top: 50px;
-            text-align: center;
-            display: flex;
-            align-content: center;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 2;
-        }
-
-        .text-container {
-            width: 100dvw;
-            height: 100dvh;
-            text-align: center;
-            display: flex;
-            align-content: center;
-            flex-direction: column;
-            justify-content: center;
-            position: absolute;
-            align-items: center;
-            z-index: 0;
-        }
-
-        .logoLink {
-            width: 300px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            padding-left: 70px;
-        }
-
-        .logo {
-            width: 300px;
-            height: auto;
-        }
-
-        .logoLink:hover {
-            transform: scale(1.05);
-        }
-
-        .footer {
-            height: 100%;
-            
-        }
-
-        .footerParent{
-            width: 100%;
-            margin-top: auto;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background-image: url('footer.png');
-            background-repeat: repeat-x;
-            background-size: auto 100%;
-            background-position: left bottom;
-        }
-
-        /* Para pantallas muy altas, el footer se puede extender más */
-        @media (min-height: 800px) {
-            .footerParent {
-                height: 60px;
-            }
-        }
-
-        @media (min-height: 1000px) {
-            .footerParent {
-                height: 80px;
-            }
+        .title{
+          font-size: 15vw;
         }
 
         .coming-soon {
-            width: 55%;
-            height: auto;
-            padding-bottom: 100px;
-            padding-top: 100px;
-            max-width: 665px;
+          width: 550px;
         }
 
-        .fadeBackground {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.856));
-            z-index: -1;
+        .footer {
+          width: 100%;
         }
-
+      }
+      @media (max-width: 650px) {
         .textImage {
-            width: 100%;
-            height: auto;
-            opacity: 0.5;
+          height: auto;
+          width: 800px;
+          padding-top: 40px;
+        }
+
+        .coming-soon {
+          width: 450px;
+        }
+        .subText{
+          font-size: 18px;
+          width: 60%;
+        }
+      }
+
+      @media (max-width: 530px) {
+        .textImage {
+          height: auto;
+          width: 700px;
+          padding-top: 70px;
         }
 
 
-        @media (max-width: 600px) {
-            .logo, .logoLink {
-                width: 200px;
-            }
+        .coming-soon {
+          width: 400px;
+        }
+      }
+
+      @media (max-width: 529px) {
+        .textImage {
+          height: auto;
+          width: 700px;
         }
 
-        @media (max-width: 1000px) {
-            .textImage{
-                height: 80PX;
-                width: 1000PX;
-            }
-
-            .coming-soon{
-                width: 550PX;
-            }
-
-            .footer{
-                width: 100%;
-            }
-
+        .coming-soon {
+          width: 80%;
         }
-        @media (max-width: 650px) {
-            .textImage{
-                height: auto;
-                width: 800PX;
-            }
+      }
 
-            .coming-soon{
-                width: 450PX;
-            }
-
-
-        }
-
-         @media (max-width: 530px) {
-            .textImage{
-                height: auto;
-                width: 700PX;
-            }
-
-            .coming-soon{
-                width: 400PX;
-            }
-        }
-
-        @media (max-width: 529px) {
-            .textImage{
-                height: auto;
-                width: 700PX;
-            }
-
-            .coming-soon{
-                width: 80%;
-            }
-        }
-
+      @font-face {
+        font-family: "New Order Semibold";
+        src: url("fonnts.com-New_Order_Semibold.otf") format("opentype");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <div class="fadeBackground"></div>
+      <div class="fadeBackground"></div>
     </div>
     <div class="logo-container">
-        <img src="logo.png" alt="3 Feet Logo" class="logo">
-            <a href="https://bigfoot.com.mx/" target="_blank">
-                <img src="logoLink.png" alt="3 Feet Logo" class="logoLink">
-            </a>
-        
+      <img src="logo.png" alt="3 Feet Logo" class="logo" />
+      <a href="https://bigfoot.com.mx/" target="_blank" class="logoLinkContainer">
+        <img src="logoLink.png" alt="3 Feet Logo" class="logoLink" />
+      </a>
     </div>
     <div class="text-container">
-        <img src="coming soon.png" alt="Coming Soon" class="coming-soon">
-        <img src="mas y rombo.png" alt="Coming Soon" class="textImage">
+      <p class="title">Coming Soon</p>
+      <img src="mas y rombo.png" alt="Coming Soon" class="textImage" />
+        <p class="subText">Ayudamos a marcas y organizaciones a crear, reinventar, consagrar o recuperar la relación con sus audiencias, generando valor, tanto a los consumidores, como a la compañía.</p>
+
     </div>
-    <div class="footerParent">
-    </div>
-</body>
+    <div class="footerParent"></div>
+  </body>
 </html>
