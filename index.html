@@ -8,12 +8,13 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
 
         body {
             height: 100dvh;
-            width: auto;
+            width: 100dvw;
             background-image: url('Fondo.png');
             background-size: cover;
             background-position: center;
@@ -23,6 +24,7 @@
             align-items: center;
             font-family: Arial, sans-serif;
             overflow-x: hidden;
+            overflow-y: hidden;
         }
 
         .logo-container {
@@ -66,13 +68,35 @@
         }
 
         .footer {
+            height: 100%;
+            
+        }
+
+        .footerParent{
             width: 100%;
-            height: auto;
             margin-top: auto;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
+            height: 50px;
+            background-image: url('footer.png');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            background-position: left bottom;
+        }
+
+        /* Para pantallas muy altas, el footer se puede extender más */
+        @media (min-height: 800px) {
+            .footerParent {
+                height: 60px;
+            }
+        }
+
+        @media (min-height: 1000px) {
+            .footerParent {
+                height: 80px;
+            }
         }
 
         .coming-soon {
@@ -80,6 +104,7 @@
             height: auto;
             padding-bottom: 100px;
             padding-top: 100px;
+            max-width: 665px;
         }
 
         .fadeBackground {
@@ -116,9 +141,43 @@
             }
 
             .footer{
-                width: 1000PX;
+                width: 100%;
             }
 
+        }
+        @media (max-width: 650px) {
+            .textImage{
+                height: auto;
+                width: 800PX;
+            }
+
+            .coming-soon{
+                width: 450PX;
+            }
+
+
+        }
+
+         @media (max-width: 530px) {
+            .textImage{
+                height: auto;
+                width: 700PX;
+            }
+
+            .coming-soon{
+                width: 400PX;
+            }
+        }
+
+        @media (max-width: 529px) {
+            .textImage{
+                height: auto;
+                width: 700PX;
+            }
+
+            .coming-soon{
+                width: 80%;
+            }
         }
 
     </style>
@@ -132,11 +191,13 @@
             <a href="https://ejemplo.com" target="_blank">
                 <img src="logoLink.png" alt="3 Feet Logo" class="logoLink">
             </a>
-        <img src="footer.png" alt="Footer Image" class="footer">
+        
     </div>
     <div class="text-container">
         <img src="coming soon.png" alt="Coming Soon" class="coming-soon">
         <img src="text.png" alt="Coming Soon" class="textImage">
+    </div>
+    <div class="footerParent">
     </div>
 </body>
 </html>
